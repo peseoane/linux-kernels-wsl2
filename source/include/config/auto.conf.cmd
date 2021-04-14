@@ -1359,7 +1359,7 @@ endif
 ifneq "$(KERNELVERSION)" "5.11.14"
 include/config/auto.conf: FORCE
 endif
-ifneq "$(CC)" "gcc"
+ifneq "$(CC)" "ccache gcc"
 include/config/auto.conf: FORCE
 endif
 ifneq "$(LD)" "ld"
