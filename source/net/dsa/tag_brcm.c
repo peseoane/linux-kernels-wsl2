@@ -66,9 +66,6 @@ static struct sk_buff *brcm_tag_xmit_ll(struct sk_buff *skb,
 	u16 queue = skb_get_queue_mapping(skb);
 	u8 *brcm_tag;
 
-	if (skb_cow_head(skb, BRCM_TAG_LEN) < 0)
-		return NULL;
-
 	/* The Ethernet switch we are interfaced with needs packets to be at
 	 * least 64 bytes (including FCS) otherwise they will be discarded when
 	 * they enter the switch port logic. When Broadcom tags are enabled, we
@@ -107,6 +104,18 @@ static struct sk_buff *brcm_tag_xmit_ll(struct sk_buff *skb,
 	return skb;
 }
 
+/* Frames with this tag have one of these two layouts:
+ * -----------------------------------
+ * | MAC DA | MAC SA | 4b tag | Type | DSA_TAG_PROTO_BRCM
+ * -----------------------------------
+ * -----------------------------------
+ * | 4b tag | MAC DA | MAC SA | Type | DSA_TAG_PROTO_BRCM_PREPEND
+ * -----------------------------------
+ * In both cases, at receive time, skb->data points 2 bytes before the actual
+ * Ethernet type field and we have an offset of 4bytes between where skb->data
+ * and where the payload starts. So the same low-level receive function can be
+ * used.
+ */
 static struct sk_buff *brcm_tag_rcv_ll(struct sk_buff *skb,
 				       struct net_device *dev,
 				       struct packet_type *pt,

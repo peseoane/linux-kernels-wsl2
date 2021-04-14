@@ -351,6 +351,8 @@ extern const void *of_get_property(const struct device_node *node,
 				int *lenp);
 extern struct device_node *of_get_cpu_node(int cpu, unsigned int *thread);
 extern struct device_node *of_get_next_cpu_node(struct device_node *prev);
+extern struct device_node *of_get_cpu_state_node(struct device_node *cpu_node,
+						 int index);
 
 #define for_each_property_of_node(dn, pp) \
 	for (pp = dn->properties; pp != NULL; pp = pp->next)
@@ -552,9 +554,11 @@ bool of_console_check(struct device_node *dn, char *name, int index);
 
 extern int of_cpu_node_to_id(struct device_node *np);
 
-int of_map_rid(struct device_node *np, u32 rid,
+int of_map_id(struct device_node *np, u32 id,
 	       const char *map_name, const char *map_mask_name,
 	       struct device_node **target, u32 *id_out);
+
+phys_addr_t of_dma_get_max_cpu_address(struct device_node *np);
 
 #else /* CONFIG_OF */
 
@@ -624,6 +628,11 @@ static inline struct device_node *of_find_node_by_phandle(phandle handle)
 }
 
 static inline struct device_node *of_get_parent(const struct device_node *node)
+{
+	return NULL;
+}
+
+static inline struct device_node *of_get_next_parent(struct device_node *node)
 {
 	return NULL;
 }
@@ -761,6 +770,12 @@ static inline struct device_node *of_get_cpu_node(int cpu,
 }
 
 static inline struct device_node *of_get_next_cpu_node(struct device_node *prev)
+{
+	return NULL;
+}
+
+static inline struct device_node *of_get_cpu_state_node(struct device_node *cpu_node,
+					int index)
 {
 	return NULL;
 }
@@ -916,6 +931,11 @@ static inline int of_machine_is_compatible(const char *compat)
 	return 0;
 }
 
+static inline int of_remove_property(struct device_node *np, struct property *prop)
+{
+	return 0;
+}
+
 static inline bool of_console_check(const struct device_node *dn, const char *name, int index)
 {
 	return false;
@@ -970,11 +990,16 @@ static inline int of_cpu_node_to_id(struct device_node *np)
 	return -ENODEV;
 }
 
-static inline int of_map_rid(struct device_node *np, u32 rid,
+static inline int of_map_id(struct device_node *np, u32 id,
 			     const char *map_name, const char *map_mask_name,
 			     struct device_node **target, u32 *id_out)
 {
 	return -EINVAL;
+}
+
+static inline phys_addr_t of_dma_get_max_cpu_address(struct device_node *np)
+{
+	return PHYS_ADDR_MAX;
 }
 
 #define of_match_ptr(_ptr)	NULL
@@ -1281,7 +1306,7 @@ static inline int of_get_available_child_count(const struct device_node *np)
 #if defined(CONFIG_OF) && !defined(MODULE)
 #define _OF_DECLARE(table, name, compat, fn, fn_type)			\
 	static const struct of_device_id __of_table_##name		\
-		__used __section(__##table##_of_table)			\
+		__used __section("__" #table "_of_table")		\
 		__aligned(__alignof__(struct of_device_id))		\
 		 = { .compatible = compat,				\
 		     .data = (fn == (fn_type)NULL) ? fn : fn  }

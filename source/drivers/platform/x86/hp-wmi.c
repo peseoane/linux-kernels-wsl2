@@ -85,6 +85,7 @@ enum hp_wmi_commandtype {
 	HPWMI_FEATURE2_QUERY		= 0x0d,
 	HPWMI_WIRELESS2_QUERY		= 0x1b,
 	HPWMI_POSTCODEERROR_QUERY	= 0x2a,
+	HPWMI_THERMAL_POLICY_QUERY	= 0x4c,
 };
 
 enum hp_wmi_command {
@@ -115,10 +116,10 @@ enum hp_wireless2_bits {
 	HPWMI_POWER_SOFT	= 0x02,
 	HPWMI_POWER_BIOS	= 0x04,
 	HPWMI_POWER_HARD	= 0x08,
+	HPWMI_POWER_FW_OR_HW	= HPWMI_POWER_BIOS | HPWMI_POWER_HARD,
 };
 
-#define IS_HWBLOCKED(x) ((x & (HPWMI_POWER_BIOS | HPWMI_POWER_HARD)) \
-			 != (HPWMI_POWER_BIOS | HPWMI_POWER_HARD))
+#define IS_HWBLOCKED(x) ((x & HPWMI_POWER_FW_OR_HW) != HPWMI_POWER_FW_OR_HW)
 #define IS_SWBLOCKED(x) !(x & HPWMI_POWER_SOFT)
 
 struct bios_rfkill2_device_state {
@@ -250,7 +251,8 @@ static int hp_wmi_perform_query(int query, enum hp_wmi_command command,
 	ret = bios_return->return_code;
 
 	if (ret) {
-		if (ret != HPWMI_RET_UNKNOWN_CMDTYPE)
+		if (ret != HPWMI_RET_UNKNOWN_COMMAND &&
+		    ret != HPWMI_RET_UNKNOWN_CMDTYPE)
 			pr_warn("query 0x%x returned error 0x%x\n", query, ret);
 		goto out_free;
 	}
@@ -483,22 +485,20 @@ static ssize_t als_store(struct device *dev, struct device_attribute *attr,
 static ssize_t postcode_store(struct device *dev, struct device_attribute *attr,
 			      const char *buf, size_t count)
 {
-	long unsigned int tmp2;
+	u32 tmp = 1;
+	bool clear;
 	int ret;
-	u32 tmp;
 
-	ret = kstrtoul(buf, 10, &tmp2);
-	if (!ret && tmp2 != 1)
-		ret = -EINVAL;
+	ret = kstrtobool(buf, &clear);
 	if (ret)
-		goto out;
+		return ret;
+
+	if (clear == false)
+		return -EINVAL;
 
 	/* Clear the POST error code. It is kept until until cleared. */
-	tmp = (u32) tmp2;
 	ret = hp_wmi_perform_query(HPWMI_POSTCODEERROR_QUERY, HPWMI_WRITE, &tmp,
 				       sizeof(tmp), sizeof(tmp));
-
-out:
 	if (ret)
 		return ret < 0 ? ret : -EINVAL;
 
@@ -869,6 +869,26 @@ fail:
 	return err;
 }
 
+static int thermal_policy_setup(struct platform_device *device)
+{
+	int err, tp;
+
+	tp = hp_wmi_read_int(HPWMI_THERMAL_POLICY_QUERY);
+	if (tp < 0)
+		return tp;
+
+	/*
+	 * call thermal policy write command to ensure that the firmware correctly
+	 * sets the OEM variables for the DPTF
+	 */
+	err = hp_wmi_perform_query(HPWMI_THERMAL_POLICY_QUERY, HPWMI_WRITE, &tp,
+							   sizeof(tp), 0);
+	if (err)
+		return err;
+
+	return 0;
+}
+
 static int __init hp_wmi_bios_setup(struct platform_device *device)
 {
 	/* clear detected rfkill devices */
@@ -879,6 +899,8 @@ static int __init hp_wmi_bios_setup(struct platform_device *device)
 
 	if (hp_wmi_rfkill_setup(device))
 		hp_wmi_rfkill2_setup(device);
+
+	thermal_policy_setup(device);
 
 	return 0;
 }
