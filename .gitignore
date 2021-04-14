@@ -1,40 +1,59 @@
-.vscode/*
+!.clang-format
+!.cocciconfig
+!.get_maintainer.ignore
+!.gitattributes
+!.gitignore
+!.mailmap
+!.vscode/extensions.json
+!.vscode/launch.json
 !.vscode/settings.json
 !.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-
-# Local History for Visual Studio Code
-.history/
-
-# SPDX-License-Identifier: GPL-2.0-only
+"*". tmp/
+!/source/arch/x86/boot/bzImage
 #
-# NOTE! Don't add files that are generated in specific
-# subdirectories here. Add them in the ".gitignore" file
-# in that subdirectory instead.
-#
-# NOTE! Please use 'git ls-files -i --exclude-standard'
-# command after changing this file, to see if there are
 # any tracked files which get ignored after the change.
-#
+# Clang's compilation database file
+# command after changing this file, to see if there are
+# cscope files
+# Debian directory (make deb-pkg)
+# Documentation toolchain
+# Generated include files
+# gnu global files
+# id-utils files
+# in that subdirectory instead.
+# Kconfig presets
+# Kconfig savedefconfig output
+# Kdevelop4
+# Leavings from module signing
+# Local History for Visual Studio Code
 # Normal rules (sorted alphabetically)
-#
-.*
+# NOTE! Don't add files that are generated in specific
+# NOTE! Please use 'git ls-files -i --exclude-standard'
+# quilt's files
+# RPM spec file (make rpm-pkg)
+# Snap directory (make snap-pkg)
+# SPDX-License-Identifier: GPL-2.0-only
+# stgit generated dirs
+# subdirectories here. Add them in the ".gitignore" file
+# tar directory (make tar*-pkg)
+# Top-level generic files
+# We don't want to ignore the following even if they are dot-files
 *.a
 *.asn1.[ch]
 *.bin
 *.bz2
 *.c.[012]*.*
+*.code-workspace
 *.dt.yaml
 *.dtb
-*.dtbo
 *.dtb.S
+*.dtbo
 *.dwo
 *.elf
 *.gcno
 *.gz
 *.i
+*.kdev4
 *.ko
 *.lex.c
 *.ll
@@ -44,8 +63,10 @@
 *.lzo
 *.mod
 *.mod.c
+*.ns_deps
 *.o
 *.o.*
+*.orig
 *.patch
 *.s
 *.so
@@ -57,113 +78,55 @@
 *.tar
 *.xz
 *.zst
-Module.symvers
-modules.builtin
-modules.order
-
-#
-# Top-level generic files
-#
-/tags
-/TAGS
-/linux
-/vmlinux
-/vmlinux.32
-/vmlinux.symvers
-/vmlinux-gdb.py
-/vmlinuz
-/System.map
-/Module.markers
-/modules.builtin.modinfo
-/modules.nsdeps
-
-#
-# RPM spec file (make rpm-pkg)
-#
-/*.spec
-
-#
-# Debian directory (make deb-pkg)
-#
-/debian/
-
-#
-# Snap directory (make snap-pkg)
-#
-/snap/
-
-#
-# tar directory (make tar*-pkg)
-#
-/tar-install/
-
-#
-# We don't want to ignore the following even if they are dot-files
-#
-!.clang-format
-!.cocciconfig
-!.get_maintainer.ignore
-!.gitattributes
-!.gitignore
-!.mailmap
-
-#
-# Generated include files
-#
-/include/config/
-/include/generated/
-/include/ksym/
-/arch/*/include/generated/
-
-# stgit generated dirs
-patches-*
-
-# quilt's files
-patches
-series
-
-# cscope files
-cscope.*
-ncscope.*
-
-# gnu global files
-GPATH
-GRTAGS
-GSYMS
-GTAGS
-
-# id-utils files
-ID
-
-*.orig
 *~
-\#*#
-
-#
-# Leavings from module signing
-#
-extra_certificates
-signing_key.pem
-signing_key.priv
-signing_key.x509
-x509.genkey
-
-# Kconfig presets
+.*
+.history/
+.vscode/*
+/*.spec
 /all.config
 /alldef.config
 /allmod.config
 /allno.config
 /allrandom.config
 /allyes.config
-
-# Kconfig savedefconfig output
-/defconfig
-
-# Kdevelop4
-*.kdev4
-
-# Clang's compilation database file
+/arch/*/include/generated/
 /compile_commands.json
-
-# Documentation toolchain
+/debian/
+/defconfig
+/include/config/
+/include/generated/
+/include/ksym/
+/linux
+/Module.markers
+/modules.builtin.modinfo
+/modules.nsdeps
+/snap/
+/System.map
+/TAGS
+/tags
+/tar-install/
+/vmlinux
+/vmlinux-gdb.py
+/vmlinux.32
+/vmlinux.symvers
+/vmlinuz
+\#*#
+cscope.*
+extra_certificates
+GPATH
+GRTAGS
+GSYMS
+GTAGS
+ID
+Module.symvers
+modules.builtin
+modules.order
+ncscope.*
+patches
+patches-*
+series
+signing_key.pem
+signing_key.priv
+signing_key.x509
 sphinx_*/
+x509.genkey
