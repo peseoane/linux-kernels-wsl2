@@ -9,8 +9,8 @@ This linux kernel fork has the sole purpose of leaving the bzimage files in the 
 >
 > Versions released under 5.4.101 onwards will not be compiled even though they are LTS versions.
 
-![Kernel 5.10.14-peseoane on WSL2 working](https://github.com/peseoane/linux-wsl2/blob/main/neofetch.png?raw=true)
-![Kernel htop showing low ram usage on WSL2 working](https://github.com/peseoane/linux-wsl2/blob/main/htop.PNG?raw=true)
+![Kernel 5.10.14-peseoane on WSL2 working](https://github.com/peseoane/linux-wsl2_OLD/blob/stable/neofetch.png?raw=true)
+![Kernel htop showing low ram usage on WSL2 working](https://github.com/peseoane/linux-wsl2_OLD/blob/stable/htop.PNG?raw=true)
 
 Microsoft still in version 4, if you don't wanna deal with the compilation, go to the releases folder.
 > **PRECOMPILED KERNELS READY FOR WSL2**: https://github.com/peseoane/linux-wsl2/releases
