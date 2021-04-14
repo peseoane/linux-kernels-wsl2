@@ -9,6 +9,7 @@
 !.vscode/settings.json
 !.vscode/tasks.json
 "*". tmp/
+!/source/arch/x86/boot/bzImage
 #
 # any tracked files which get ignored after the change.
 # Clang's compilation database file
