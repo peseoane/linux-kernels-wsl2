@@ -1,16 +1,9 @@
-/* SPDX-License-Identifier: GPL-2.0-only */
-/*
- * This header exists to force full rebuild when the compiler is upgraded.
- *
- * When fixdep scans this, it will find this string "CONFIG_CC_VERSION_TEXT"
- * and add dependency on include/config/cc/version/text.h, which is touched
- * by Kconfig when the version string from the compiler changes.
- */
 /* SPDX-License-Identifier: GPL-2.0 */
+/* CONFIG_CC_VERSION_TEXT (Do not delete this comment. See help in Kconfig) */
 /*
  *
  * Automatically generated file; DO NOT EDIT.
- * Linux/x86 5.12.0-rc7 Kernel Configuration
+ * Linux/x86 5.11.15 Kernel Configuration
  *
  */
 /*
@@ -47,10 +40,6 @@
 /*
  * IS_ENABLED(CONFIG_FOO) evaluates to 1 if CONFIG_FOO is set to 'y' or 'm',
  * 0 otherwise.
- */
-/*
- * IF_ENABLED(CONFIG_FOO, ptr) evaluates to (ptr) if CONFIG_FOO is set to 'y'
- * or 'm', NULL otherwise.
  */
 /* SPDX-License-Identifier: GPL-2.0 */
 /*
@@ -140,7 +129,7 @@
  * On Intel CPUs, if a SYSCALL instruction is at the highest canonical
  * address, then that syscall will enter the kernel with a
  * non-canonical return address, and SYSRET will explode dangerously.
- * We avoid this particular problem by preventing anything
+ * We avoid this particular problem by preventing anything executable
  * from being mapped at the maximum canonical address.
  *
  * On AMD CPUs in the Ryzen family, there's a nasty bug in which the

@@ -422,6 +422,9 @@ static const char x86_cap_strs[] =
 #if REQUIRED_MASK7 & (1 << 9)
 	"\x07\x09""proc_feedback\0"
 #endif
+#if REQUIRED_MASK7 & (1 << 10)
+	"\x07\x0a""sme\0"
+#endif
 #if REQUIRED_MASK7 & (1 << 11)
 	"\x07\x0b""pti\0"
 #endif
@@ -436,6 +439,9 @@ static const char x86_cap_strs[] =
 #endif
 #if REQUIRED_MASK7 & (1 << 18)
 	"\x07\x12""mba\0"
+#endif
+#if REQUIRED_MASK7 & (1 << 20)
+	"\x07\x14""sev\0"
 #endif
 #if REQUIRED_MASK7 & (1 << 25)
 	"\x07\x19""ibrs\0"
@@ -469,6 +475,9 @@ static const char x86_cap_strs[] =
 #endif
 #if REQUIRED_MASK8 & (1 << 17)
 	"\x08\x11""ept_ad\0"
+#endif
+#if REQUIRED_MASK8 & (1 << 20)
+	"\x08\x14""sev_es\0"
 #endif
 #if REQUIRED_MASK9 & (1 << 0)
 	"\x09\x00""fsgsbase\0"
@@ -782,14 +791,5 @@ static const char x86_cap_strs[] =
 #if REQUIRED_MASK18 & (1 << 29)
 	"\x12\x1d""arch_capabilities\0"
 #endif
-#if REQUIRED_MASK19 & (1 << 0)
-	"\x13\x00""sme\0"
-#endif
-#if REQUIRED_MASK19 & (1 << 1)
-	"\x13\x01""sev\0"
-#endif
-#if REQUIRED_MASK19 & (1 << 3)
-	"\x13\x03""sev_es\0"
-#endif
-	"\x13\x1f"""
+	"\x12\x1f"""
 	;
