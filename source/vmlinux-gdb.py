@@ -1,0 +1,1 @@
+/home/peseoane/git/linux-wsl/source/scripts/gdb/vmlinux-gdb.py
