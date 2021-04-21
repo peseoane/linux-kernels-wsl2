@@ -1,1 +1,1 @@
-#define UTS_RELEASE "5.10.31_{wsl-kernel-peseoane}"
+#define UTS_RELEASE "5.10.32-peseoane-longterm-wsl2-"
