@@ -1,3 +1,21 @@
+**NOTE:** All the builds I do adapted to work on Microsoft WSL2 **are free of course**.
+
+This takes time, testing, looking for bugs, unifying the torvalds/linux repositories with microsoft/WSL2-Linux-Kernel (which are way behind) so you always have the latest kernels, but it's work time, electricity costs... the usual stuff.
+
+**If you want to thank me in any way, you can help the animal protection organisation of my city in Spain, @rescuegalicia**
+
+In Spain, the abandonment of animals due to the fact that the state of alarm is over and that they are no longer valid for breaking the government's curfew, has saturated our animal shelters.
+
+> 🦮🐶🐩😻 🐕‍🦺 **Consider donating 1€ to them if my work has been useful to you via this direct link I have created: https://www.facebook.com/donate/119500610152971/**
+
+Their websites are:
+
+https://www.instagram.com/rescuegalicia/
+https://rescuegalicia.protecms.com/
+https://rescuegalicia.protecms.com/
+
+**Thank you very much!** 😊
+
 # WSL2 Latest kernel releases
 
 This linux kernel fork has the sole purpose of leaving the bzimage files in the releases section to update the kernel in Debian-based distributions for WSL2.
@@ -6,13 +24,10 @@ This linux kernel fork has the sole purpose of leaving the bzimage files in the 
 > * Mainline
 > * Stable
 > * Longterm
->
-> Versions released under 5.4.101 onwards will not be compiled even though they are LTS versions.
 
 ![Kernel 5.10.14-peseoane on WSL2 working](https://i.imgur.com/3luMTGJ.png)
-![Kernel htop showing low ram usage on WSL2 working](https://github.com/peseoane/linux-wsl2_OLD/blob/stable/htop.PNG?raw=true)
 
-Microsoft still in version 4, if you don't wanna deal with the compilation, go to the releases folder.
+Microsoft still in version 4, and 5 is alpha, if you don't wanna deal with the compilation, go to the releases folder.
 > **PRECOMPILED KERNELS READY FOR WSL2**: https://github.com/peseoane/linux-wsl2/releases
 
 ## Instalation
