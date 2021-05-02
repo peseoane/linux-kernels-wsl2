@@ -16,6 +16,8 @@ https://rescuegalicia.protecms.com/
 
 **Thank you very much!** 😊
 
+![RescueGalicia](https://i.imgur.com/ZD7WRRX.png)
+
 # WSL2 Latest kernel releases
 
 This linux kernel fork has the sole purpose of leaving the bzimage files in the releases section to update the kernel in Debian-based distributions for WSL2.
