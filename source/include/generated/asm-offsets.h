@@ -35,7 +35,7 @@
 
 
 #define TASK_threadsp 2776 /* offsetof(struct task_struct, thread.sp) */
-#define TASK_stack_canary 1344 /* offsetof(struct task_struct, stack_canary) */
+#define TASK_stack_canary 1352 /* offsetof(struct task_struct, stack_canary) */
 
 #define crypto_tfm_ctx_offset 24 /* offsetof(struct crypto_tfm, __crt_ctx) */
 

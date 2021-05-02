@@ -196,5 +196,15 @@
 #define OFF_mhi_device_id_chan 0 /* offsetof(struct mhi_device_id, chan) */
 #define SIZE_auxiliary_device_id 40 /* sizeof(struct auxiliary_device_id) */
 #define OFF_auxiliary_device_id_name 0 /* offsetof(struct auxiliary_device_id, name) */
+#define SIZE_ssam_device_id 16 /* sizeof(struct ssam_device_id) */
+#define OFF_ssam_device_id_match_flags 0 /* offsetof(struct ssam_device_id, match_flags) */
+#define OFF_ssam_device_id_domain 1 /* offsetof(struct ssam_device_id, domain) */
+#define OFF_ssam_device_id_category 2 /* offsetof(struct ssam_device_id, category) */
+#define OFF_ssam_device_id_target 3 /* offsetof(struct ssam_device_id, target) */
+#define OFF_ssam_device_id_instance 4 /* offsetof(struct ssam_device_id, instance) */
+#define OFF_ssam_device_id_function 5 /* offsetof(struct ssam_device_id, function) */
+#define SIZE_dfl_device_id 16 /* sizeof(struct dfl_device_id) */
+#define OFF_dfl_device_id_type 0 /* offsetof(struct dfl_device_id, type) */
+#define OFF_dfl_device_id_feature_id 2 /* offsetof(struct dfl_device_id, feature_id) */
 
 #endif

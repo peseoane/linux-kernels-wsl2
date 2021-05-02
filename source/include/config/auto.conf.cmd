@@ -5,6 +5,7 @@ deps_config := \
 	samples/Kconfig \
 	kernel/trace/Kconfig \
 	kernel/rcu/Kconfig.debug \
+	lib/Kconfig.kfence \
 	lib/Kconfig.kasan \
 	mm/Kconfig.debug \
 	lib/Kconfig.kcsan \
@@ -194,6 +195,7 @@ deps_config := \
 	drivers/vme/Kconfig \
 	drivers/ntb/test/Kconfig \
 	drivers/ntb/hw/mscc/Kconfig \
+	drivers/ntb/hw/epf/Kconfig \
 	drivers/ntb/hw/intel/Kconfig \
 	drivers/ntb/hw/idt/Kconfig \
 	drivers/ntb/hw/amd/Kconfig \
@@ -241,8 +243,6 @@ deps_config := \
 	drivers/extcon/Kconfig \
 	drivers/devfreq/event/Kconfig \
 	drivers/devfreq/Kconfig \
-	drivers/soc/kendryte/Kconfig \
-	drivers/soc/zte/Kconfig \
 	drivers/soc/xilinx/Kconfig \
 	drivers/soc/versatile/Kconfig \
 	drivers/soc/ux500/Kconfig \
@@ -261,6 +261,7 @@ deps_config := \
 	drivers/soc/fsl/qe/Kconfig \
 	drivers/soc/fsl/qbman/Kconfig \
 	drivers/soc/fsl/Kconfig \
+	drivers/soc/canaan/Kconfig \
 	drivers/soc/bcm/brcmstb/Kconfig \
 	drivers/soc/bcm/bcm63xx/Kconfig \
 	drivers/soc/bcm/Kconfig \
@@ -279,6 +280,7 @@ deps_config := \
 	drivers/clocksource/Kconfig \
 	drivers/hwspinlock/Kconfig \
 	drivers/clk/zynqmp/Kconfig \
+	drivers/clk/xilinx/Kconfig \
 	drivers/clk/x86/Kconfig \
 	drivers/clk/uniphier/Kconfig \
 	drivers/clk/ti/Kconfig \
@@ -292,6 +294,7 @@ deps_config := \
 	drivers/clk/renesas/Kconfig \
 	drivers/clk/qcom/Kconfig \
 	drivers/clk/mvebu/Kconfig \
+	drivers/clk/mstar/Kconfig \
 	drivers/clk/meson/Kconfig \
 	drivers/clk/mediatek/Kconfig \
 	drivers/clk/keystone/Kconfig \
@@ -305,6 +308,7 @@ deps_config := \
 	drivers/clk/actions/Kconfig \
 	drivers/clk/versatile/Kconfig \
 	drivers/clk/Kconfig \
+	drivers/platform/surface/aggregator/Kconfig \
 	drivers/platform/surface/Kconfig \
 	drivers/platform/olpc/Kconfig \
 	drivers/platform/mellanox/Kconfig \
@@ -313,6 +317,7 @@ deps_config := \
 	drivers/platform/goldfish/Kconfig \
 	drivers/platform/mips/Kconfig \
 	drivers/platform/x86/intel_speed_select_if/Kconfig \
+	drivers/platform/x86/dell/Kconfig \
 	drivers/platform/x86/Kconfig \
 	drivers/platform/Kconfig \
 	drivers/staging/hikey9xx/Kconfig \
@@ -368,7 +373,6 @@ deps_config := \
 	drivers/staging/media/hantro/Kconfig \
 	drivers/staging/media/atomisp/i2c/Kconfig \
 	drivers/staging/media/atomisp/Kconfig \
-	drivers/staging/media/allegro-dvt/Kconfig \
 	drivers/staging/media/Kconfig \
 	drivers/staging/nvec/Kconfig \
 	drivers/staging/emxx_udc/Kconfig \
@@ -403,6 +407,7 @@ deps_config := \
 	drivers/vhost/Kconfig \
 	drivers/vdpa/Kconfig \
 	drivers/virtio/Kconfig \
+	drivers/virt/acrn/Kconfig \
 	drivers/virt/nitro_enclaves/Kconfig \
 	drivers/virt/vboxguest/Kconfig \
 	drivers/virt/Kconfig \
@@ -419,6 +424,7 @@ deps_config := \
 	drivers/dca/Kconfig \
 	drivers/dma-buf/heaps/Kconfig \
 	drivers/dma-buf/Kconfig \
+	drivers/dma/lgm/Kconfig \
 	drivers/dma/fsl-dpaa2-qdma/Kconfig \
 	drivers/dma/ti/Kconfig \
 	drivers/dma/sh/Kconfig \
@@ -459,6 +465,7 @@ deps_config := \
 	drivers/infiniband/Kconfig \
 	drivers/accessibility/speakup/Kconfig \
 	drivers/accessibility/Kconfig \
+	drivers/leds/blink/Kconfig \
 	drivers/leds/trigger/Kconfig \
 	drivers/leds/flash/Kconfig \
 	drivers/leds/Kconfig \
@@ -511,12 +518,10 @@ deps_config := \
 	sound/x86/Kconfig \
 	sound/soc/generic/Kconfig \
 	sound/soc/codecs/Kconfig \
-	sound/soc/zte/Kconfig \
 	sound/soc/xtensa/Kconfig \
 	sound/soc/xilinx/Kconfig \
 	sound/soc/ux500/Kconfig \
 	sound/soc/uniphier/Kconfig \
-	sound/soc/txx9/Kconfig \
 	sound/soc/ti/Kconfig \
 	sound/soc/tegra/Kconfig \
 	sound/soc/sunxi/Kconfig \
@@ -528,7 +533,6 @@ deps_config := \
 	sound/soc/sof/intel/Kconfig \
 	sound/soc/sof/imx/Kconfig \
 	sound/soc/sof/Kconfig \
-	sound/soc/sirf/Kconfig \
 	sound/soc/sh/Kconfig \
 	sound/soc/samsung/Kconfig \
 	sound/soc/rockchip/Kconfig \
@@ -632,8 +636,6 @@ deps_config := \
 	drivers/gpu/drm/bochs/Kconfig \
 	drivers/gpu/drm/qxl/Kconfig \
 	drivers/gpu/drm/tilcdc/Kconfig \
-	drivers/gpu/drm/omapdrm/displays/Kconfig \
-	drivers/gpu/drm/omapdrm/dss/Kconfig \
 	drivers/gpu/drm/omapdrm/Kconfig \
 	drivers/gpu/drm/sun4i/Kconfig \
 	drivers/gpu/drm/shmobile/Kconfig \
@@ -809,7 +811,6 @@ deps_config := \
 	drivers/pinctrl/visconti/Kconfig \
 	drivers/pinctrl/cirrus/Kconfig \
 	drivers/pinctrl/meson/Kconfig \
-	drivers/pinctrl/zte/Kconfig \
 	drivers/pinctrl/mediatek/Kconfig \
 	drivers/pinctrl/vt8500/Kconfig \
 	drivers/pinctrl/uniphier/Kconfig \
@@ -902,6 +903,7 @@ deps_config := \
 	drivers/net/wireless/ralink/Kconfig \
 	drivers/net/wireless/microchip/wilc1000/Kconfig \
 	drivers/net/wireless/microchip/Kconfig \
+	drivers/net/wireless/mediatek/mt76/mt7921/Kconfig \
 	drivers/net/wireless/mediatek/mt76/mt7915/Kconfig \
 	drivers/net/wireless/mediatek/mt76/mt7615/Kconfig \
 	drivers/net/wireless/mediatek/mt76/mt7603/Kconfig \
@@ -1042,7 +1044,6 @@ deps_config := \
 	drivers/net/ethernet/brocade/bna/Kconfig \
 	drivers/net/ethernet/brocade/Kconfig \
 	drivers/net/ethernet/broadcom/Kconfig \
-	drivers/net/ethernet/aurora/Kconfig \
 	drivers/net/ethernet/atheros/Kconfig \
 	drivers/net/ethernet/arc/Kconfig \
 	drivers/net/ethernet/aquantia/Kconfig \
@@ -1061,6 +1062,7 @@ deps_config := \
 	drivers/net/ethernet/adaptec/Kconfig \
 	drivers/net/ethernet/3com/Kconfig \
 	drivers/net/ethernet/Kconfig \
+	drivers/net/dsa/xrs700x/Kconfig \
 	drivers/net/dsa/sja1105/Kconfig \
 	drivers/net/dsa/qca/Kconfig \
 	drivers/net/dsa/ocelot/Kconfig \
@@ -1118,6 +1120,7 @@ deps_config := \
 	drivers/misc/uacce/Kconfig \
 	drivers/misc/habanalabs/Kconfig \
 	drivers/misc/cardreader/Kconfig \
+	drivers/misc/bcm-vk/Kconfig \
 	drivers/misc/ocxl/Kconfig \
 	drivers/misc/cxl/Kconfig \
 	drivers/misc/echo/Kconfig \
@@ -1177,6 +1180,7 @@ deps_config := \
 	drivers/rapidio/devices/Kconfig \
 	drivers/rapidio/Kconfig \
 	drivers/pcmcia/Kconfig \
+	drivers/cxl/Kconfig \
 	drivers/pci/switch/Kconfig \
 	drivers/pci/endpoint/functions/Kconfig \
 	drivers/pci/endpoint/Kconfig \
@@ -1324,7 +1328,6 @@ deps_config := \
 	drivers/cpufreq/Kconfig.arm \
 	drivers/cpufreq/Kconfig.x86 \
 	drivers/cpufreq/Kconfig \
-	drivers/sfi/Kconfig \
 	drivers/acpi/pmic/Kconfig \
 	drivers/acpi/arm64/Kconfig \
 	drivers/acpi/dptf/Kconfig \
@@ -1356,13 +1359,16 @@ include/config/auto.conf: \
 ifneq "$(ARCH)" "x86"
 include/config/auto.conf: FORCE
 endif
-ifneq "$(KERNELVERSION)" "5.11.18"
+ifneq "$(KERNELVERSION)" "5.12.1"
 include/config/auto.conf: FORCE
 endif
 ifneq "$(CC)" "ccache gcc"
 include/config/auto.conf: FORCE
 endif
 ifneq "$(LD)" "ld"
+include/config/auto.conf: FORCE
+endif
+ifneq "$(srctree)" "."
 include/config/auto.conf: FORCE
 endif
 ifneq "$(SRCARCH)" "x86"
@@ -1374,13 +1380,13 @@ endif
 ifneq "$(CC_VERSION_TEXT)" "gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0"
 include/config/auto.conf: FORCE
 endif
-ifneq "$(srctree)" "."
-include/config/auto.conf: FORCE
-endif
 ifneq "$(NM)" "nm"
 include/config/auto.conf: FORCE
 endif
 ifneq "$(OBJCOPY)" "objcopy"
+include/config/auto.conf: FORCE
+endif
+ifneq "$(AR)" "ar"
 include/config/auto.conf: FORCE
 endif
 ifneq "$(PAHOLE)" "pahole"
