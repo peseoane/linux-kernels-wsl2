@@ -1,7 +1,7 @@
 /*
  *
  * Automatically generated file; DO NOT EDIT.
- * Linux/x86 5.10.34 Kernel Configuration
+ * Linux/x86 5.10.37 Kernel Configuration
  *
  */
 #define CONFIG_RING_BUFFER 1
@@ -853,7 +853,7 @@
 #define CONFIG_EFI_ESRT 1
 #define CONFIG_NEED_DMA_MAP_STATE 1
 #define CONFIG_SND_HDA 1
-#define CONFIG_SND_HDA_PREALLOC_SIZE 2048
+#define CONFIG_SND_HDA_PREALLOC_SIZE 0
 #define CONFIG_YENTA_ENE_TUNE 1
 #define CONFIG_MOUSE_PS2_LIFEBOOK 1
 #define CONFIG_SERIO_LIBPS2 1
@@ -1282,7 +1282,6 @@
 #define CONFIG_ELF_CORE 1
 #define CONFIG_ACPI_DOCK 1
 #define CONFIG_USB_SUPPORT 1
-#define CONFIG_INPUT_POLLDEV 1
 #define CONFIG_MODIFY_LDT_SYSCALL 1
 #define CONFIG_WLAN_VENDOR_ST 1
 #define CONFIG_X86_REROUTE_FOR_BROKEN_BOOT_IRQS 1
@@ -1303,6 +1302,7 @@
 #define CONFIG_POSIX_MQUEUE_SYSCTL 1
 #define CONFIG_DRM_I915_TIMESLICE_DURATION 1
 #define CONFIG_VHOST_MENU 1
+#define CONFIG_UNUSED_SYMBOLS 1
 #define CONFIG_DEBUG_MISC 1
 #define CONFIG_FB_CFB_COPYAREA 1
 #define CONFIG_FB_EFI 1
@@ -1387,7 +1387,7 @@
 #define CONFIG_IOASID 1
 #define CONFIG_EFI_RUNTIME_WRAPPERS 1
 #define CONFIG_MDIO_DEVRES 1
-#define CONFIG_LSM "lockdown,yama,loadpin,safesetid,integrity,selinux,smack,tomoyo,apparmor,bpf"
+#define CONFIG_LSM "landlock,lockdown,yama,loadpin,safesetid,integrity,selinux,smack,tomoyo,apparmor,bpf"
 #define CONFIG_ARCH_DMA_ADDR_T_64BIT 1
 #define CONFIG_FILE_LOCKING 1
 #define CONFIG_GENERIC_CLOCKEVENTS_MIN_ADJUST 1
