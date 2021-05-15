@@ -1,8 +1,8 @@
 .section ".rodata..compressed","a",@progbits
 .globl z_input_len
-z_input_len = 10736153
+z_input_len = 10738427
 .globl z_output_len
-z_output_len = 37558860
+z_output_len = 37558900
 .globl input_data, input_data_end
 input_data:
 .incbin "arch/x86/boot/compressed/vmlinux.bin.gz"
@@ -10,7 +10,7 @@ input_data_end:
 .section ".rodata","a",@progbits
 .globl input_len
 input_len:
-	.long 10736153
+	.long 10738427
 .globl output_len
 output_len:
-	.long 37558860
+	.long 37558900

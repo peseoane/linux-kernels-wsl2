@@ -1,1 +1,1 @@
-#define UTS_RELEASE "5.12.1-peseoane-wsl2-stable-"
+#define UTS_RELEASE "5.12.4-peseoane-wsl2-stable-"
