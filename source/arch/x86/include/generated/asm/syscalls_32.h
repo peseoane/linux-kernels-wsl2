@@ -827,3 +827,4 @@ __SYSCALL_I386(441, sys_epoll_pwait2)
 #else
 __SYSCALL_I386(441, compat_sys_epoll_pwait2)
 #endif
+__SYSCALL_I386(442, sys_mount_setattr)

@@ -432,9 +432,10 @@
 #define __NR_ia32_faccessat2 439
 #define __NR_ia32_process_madvise 440
 #define __NR_ia32_epoll_pwait2 441
+#define __NR_ia32_mount_setattr 442
 
 #ifdef __KERNEL__
-#define __NR_ia32_syscall_max 441
+#define __NR_ia32_syscall_max 442
 #endif
 
 #endif /* _ASM_X86_UNISTD_32_IA32_H */

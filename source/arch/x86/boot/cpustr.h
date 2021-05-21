@@ -584,6 +584,9 @@ static const char x86_cap_strs[] =
 #if REQUIRED_MASK11 & (1 << 6)
 	"\x0b\x06""split_lock_detect\0"
 #endif
+#if REQUIRED_MASK12 & (1 << 4)
+	"\x0c\x04""avx_vnni\0"
+#endif
 #if REQUIRED_MASK12 & (1 << 5)
 	"\x0c\x05""avx512_bf16\0"
 #endif
