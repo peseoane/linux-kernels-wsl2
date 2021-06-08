@@ -10,7 +10,7 @@
 /*
  *
  * Automatically generated file; DO NOT EDIT.
- * Linux/x86 5.12.5 Kernel Configuration
+ * Linux/x86 5.12.9 Kernel Configuration
  *
  */
 /*
@@ -69,6 +69,11 @@
  *
  * Similarly, _AT() will cast an expression with a type in C, but
  * leave it unchanged in asm.
+ */
+/*
+ * This returns a constant expression while determining if an argument is
+ * a constant expression, most importantly without evaluating the argument.
+ * Glory to Martin Uecker <Martin.Uecker@med.uni-goettingen.de>
  */
 /* SPDX-License-Identifier: GPL-2.0 */
 /* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
