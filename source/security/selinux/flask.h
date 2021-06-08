@@ -96,7 +96,6 @@
 #define SECCLASS_XDP_SOCKET                              92
 #define SECCLASS_PERF_EVENT                              93
 #define SECCLASS_LOCKDOWN                                94
-#define SECCLASS_ANON_INODE                              95
 
 #define SECINITSID_KERNEL                                   1
 #define SECINITSID_SECURITY                                 2

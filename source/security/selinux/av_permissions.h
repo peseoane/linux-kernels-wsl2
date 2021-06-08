@@ -1653,30 +1653,5 @@
 #define PERF_EVENT__WRITE                         0x00000020U
 #define LOCKDOWN__INTEGRITY                       0x00000001U
 #define LOCKDOWN__CONFIDENTIALITY                 0x00000002U
-#define ANON_INODE__IOCTL                         0x00000001U
-#define ANON_INODE__READ                          0x00000002U
-#define ANON_INODE__WRITE                         0x00000004U
-#define ANON_INODE__CREATE                        0x00000008U
-#define ANON_INODE__GETATTR                       0x00000010U
-#define ANON_INODE__SETATTR                       0x00000020U
-#define ANON_INODE__LOCK                          0x00000040U
-#define ANON_INODE__RELABELFROM                   0x00000080U
-#define ANON_INODE__RELABELTO                     0x00000100U
-#define ANON_INODE__APPEND                        0x00000200U
-#define ANON_INODE__MAP                           0x00000400U
-#define ANON_INODE__UNLINK                        0x00000800U
-#define ANON_INODE__LINK                          0x00001000U
-#define ANON_INODE__RENAME                        0x00002000U
-#define ANON_INODE__EXECUTE                       0x00004000U
-#define ANON_INODE__QUOTAON                       0x00008000U
-#define ANON_INODE__MOUNTON                       0x00010000U
-#define ANON_INODE__AUDIT_ACCESS                  0x00020000U
-#define ANON_INODE__OPEN                          0x00040000U
-#define ANON_INODE__EXECMOD                       0x00080000U
-#define ANON_INODE__WATCH                         0x00100000U
-#define ANON_INODE__WATCH_MOUNT                   0x00200000U
-#define ANON_INODE__WATCH_SB                      0x00400000U
-#define ANON_INODE__WATCH_WITH_PERM               0x00800000U
-#define ANON_INODE__WATCH_READS                   0x01000000U
 
 #endif
