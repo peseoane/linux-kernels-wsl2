@@ -20,19 +20,46 @@ https://rescuegalicia.protecms.com/
 
 # WSL2 Latest kernel releases
 
-This linux kernel fork has the sole purpose of leaving the bzimage files in the releases section to update the kernel in Debian-based distributions for WSL2.
+In this repository you will find already compiled images of the kernel as well as its tagged source code.
 
-> **NOTE** From 28 February 2021, only images of the most recent versions of:
-> * Mainline
-> * Stable
-> * Longterm
+The original repository is a constant testing and mixing between the official repositories of:
+
+- https://www.kernel.org/
+- https://github.com/microsoft/WSL2-Linux-Kernel
+
+Since Microsoft does not update kernels "to the latest version" for obvious testing and optimization reasons, even images from kernel.org will not work directly on WSL2 without adaptation.
 
 ![Kernel 5.10.14-peseoane on WSL2 working](https://i.imgur.com/3luMTGJ.png)
 
-Microsoft still in version 4, and 5 is alpha, if you don't wanna deal with the compilation, go to the releases folder.
 > **PRECOMPILED KERNELS READY FOR WSL2**: https://github.com/peseoane/linux-wsl2/releases
 
-## Instalation
+In principle, only the most relevant images from the channels are kept up to date (as far as I can):
+
+- mainline
+- stable
+- longterm
+
+**EOL images are not supported and should not be used in a production environment.**
+
+## Instalation (NEW WAY)
+Create in your `C:\Users\YOURUSER\.wsl` a `dotfile` with the name `.wslconfig` and the following text:
+
+```powershell
+[wsl2]
+kernel=C:\\WSL\\Kernel\\stable-5.12.10
+```
+
+Just put the full path to your compiled image or download.
+
+The name is totally indiferent, if you download one of my releases `bzImage` will work with that name.
+
+Now restart your `wsl` in `Powershell` or `cmd` with:
+
+```powershell```powershell
+wsl --shutdown
+```
+
+## Instalation (OLD WAY)
 
 To update the kernel, from PowerShell you must invoke the following command:
 
@@ -51,21 +78,7 @@ As always, you need the dev-kit, in Ubuntu or Debian just do:
 sudo apt-get install build-essential libncurses-dev bison flex libssl-dev libelf-dev
 ```
 
-Later, you can git clone https://github.com/torvalds/linux or go to https://www.kernel.org/ and download your preferred version.
-
-**I don't include the kernel source beacause all you need from this repo is just de .config file to work with WSL2.**
-
-If you want to autocompile your version, this fork has a .config adapted to work with WSL2.
-
-Just enter in `make menuconfig` and change values at your choice.
-
-### ¿CCACHE?
-
-Just change to 
-
-```bash
-time KBUILD_BUILD_TIMESTAMP='' make CC="ccache gcc" -j$(nproc)
-```
+And just clone, choose one branch and you're ready to go with your changes.
 
 ## ¿Will work on my system?
 
@@ -75,7 +88,7 @@ The distributed versions are optimised for modern processors, with the following
 export KCFLAGS="-o2 -mtune=native -pipe" KCPPFLAGS="-o2 -mtune=native -pipe make all"
 ```
 
-> NOTE: if you clone from the git of Tolvards/Linux and not wget from Kernel ORG, the export flags will take longer, don't know why... better download from kernel.org! It's fast and the results are the same. Algo o3 flags seems fine... 0fast the same, but my releases are o2 for stable and -g por debug developer releases candidates!
+> NOTE: this dosen't work anymore on Intel 11th gen, JUST DON'T DO THAT beacuase needs `gcc-10` and `g++-10` and the linker isn't supporter yet, default optimization is for Intel Core Duo / Xeon an 02 flag.
 
 ### ¿Where can i copy my bzimage?
 
