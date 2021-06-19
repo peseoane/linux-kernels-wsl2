@@ -55,7 +55,7 @@ The name is totally indiferent, if you download one of my releases `bzImage` wil
 
 Now restart your `wsl` in `Powershell` or `cmd` with:
 
-```powershell```powershell
+```powerhsell
 wsl --shutdown
 ```
 
