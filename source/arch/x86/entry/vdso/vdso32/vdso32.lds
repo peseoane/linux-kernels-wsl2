@@ -10,7 +10,7 @@
 /*
  *
  * Automatically generated file; DO NOT EDIT.
- * Linux/x86 5.12.13 Kernel Configuration
+ * Linux/x86 5.12.14 Kernel Configuration
  *
  */
 /*
