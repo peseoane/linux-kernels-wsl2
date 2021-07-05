@@ -1,23 +1,3 @@
-**NOTE:** All the builds I do adapted to work on Microsoft WSL2 **are free of course**.
-
-This takes time, testing, looking for bugs, unifying the torvalds/linux repositories with microsoft/WSL2-Linux-Kernel (which are way behind) so you always have the latest kernels, but it's work time, electricity costs... the usual stuff.
-
-**If you want to thank me in any way, you can help the animal protection organisation of my city in Spain, @rescuegalicia**
-
-In Spain, the abandonment of animals due to the fact that the state of alarm is over and that they are no longer valid for breaking the government's curfew, has saturated our animal shelters.
-
-> 🦮🐶🐩😻 🐕‍🦺 **Consider donating 1€ to them if my work has been useful to you via this direct link I have created: https://www.facebook.com/donate/119500610152971/**
-
-Their websites are:
-
-https://www.instagram.com/rescuegalicia/
-https://rescuegalicia.protecms.com/
-https://rescuegalicia.protecms.com/
-
-**Thank you very much!** 😊
-
-![RescueGalicia](https://i.imgur.com/ZD7WRRX.png)
-
 # WSL2 Latest kernel releases
 
 In this repository you will find already compiled images of the kernel as well as its tagged source code.
