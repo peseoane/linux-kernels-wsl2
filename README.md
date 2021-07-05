@@ -9,7 +9,7 @@ The original repository is a constant testing and mixing between the official re
 
 Since Microsoft does not update kernels "to the latest version" for obvious testing and optimization reasons, even images from kernel.org will not work directly on WSL2 without adaptation.
 
-![Kernel 5.10.14-peseoane on WSL2 working](https://i.imgur.com/3luMTGJ.png)
+![Vanila kernel on WSL2](https://user-images.githubusercontent.com/47398995/124501290-8f726e80-ddc1-11eb-8116-9bd5abd4d69e.png)
 
 > **PRECOMPILED KERNELS READY FOR WSL2**: https://github.com/peseoane/linux-wsl2/releases
 
