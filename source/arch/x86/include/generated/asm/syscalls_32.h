@@ -828,3 +828,6 @@ __SYSCALL_I386(441, sys_epoll_pwait2)
 __SYSCALL_I386(441, compat_sys_epoll_pwait2)
 #endif
 __SYSCALL_I386(442, sys_mount_setattr)
+__SYSCALL_I386(444, sys_landlock_create_ruleset)
+__SYSCALL_I386(445, sys_landlock_add_rule)
+__SYSCALL_I386(446, sys_landlock_restrict_self)

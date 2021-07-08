@@ -433,9 +433,12 @@
 #define __NR_ia32_process_madvise 440
 #define __NR_ia32_epoll_pwait2 441
 #define __NR_ia32_mount_setattr 442
+#define __NR_ia32_landlock_create_ruleset 444
+#define __NR_ia32_landlock_add_rule 445
+#define __NR_ia32_landlock_restrict_self 446
 
 #ifdef __KERNEL__
-#define __NR_ia32_syscall_max 442
+#define __NR_ia32_syscall_max 446
 #endif
 
 #endif /* _ASM_X86_UNISTD_32_IA32_H */
