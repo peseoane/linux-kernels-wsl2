@@ -1,0 +1,6 @@
+0x00000000	nf_log_dump_vlan	net/netfilter/nf_log_common	EXPORT_SYMBOL_GPL	
+0x00000000	nf_log_dump_packet_common	net/netfilter/nf_log_common	EXPORT_SYMBOL_GPL	
+0x00000000	nf_log_l2packet	net/netfilter/nf_log_common	EXPORT_SYMBOL_GPL	
+0x00000000	nf_log_dump_sk_uid_gid	net/netfilter/nf_log_common	EXPORT_SYMBOL_GPL	
+0x00000000	nf_log_dump_tcp_header	net/netfilter/nf_log_common	EXPORT_SYMBOL_GPL	
+0x00000000	nf_log_dump_udp_header	net/netfilter/nf_log_common	EXPORT_SYMBOL_GPL	
