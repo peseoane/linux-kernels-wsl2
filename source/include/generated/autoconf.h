@@ -1,7 +1,7 @@
 /*
  *
  * Automatically generated file; DO NOT EDIT.
- * Linux/x86 5.10.49 Kernel Configuration
+ * Linux/x86 5.10.50 Kernel Configuration
  *
  */
 #define CONFIG_RING_BUFFER 1
@@ -577,7 +577,7 @@
 #define CONFIG_HAVE_CLK 1
 #define CONFIG_CRYPTO_HASH2 1
 #define CONFIG_THERMAL_GOV_STEP_WISE 1
-#define CONFIG_DEFAULT_HOSTNAME "(none)"
+#define CONFIG_DEFAULT_HOSTNAME "WSL2"
 #define CONFIG_SRCU 1
 #define CONFIG_NFS_FS 1
 #define CONFIG_CRASH_DUMP 1
@@ -913,7 +913,7 @@
 #define CONFIG_HAVE_IOREMAP_PROT 1
 #define CONFIG_CC_HAS_KASAN_GENERIC 1
 #define CONFIG_DEBUG_KERNEL 1
-#define CONFIG_LOCALVERSION ""
+#define CONFIG_LOCALVERSION "-peseoane-longterm-linux-kernels-wsl2"
 #define CONFIG_GENERIC_IRQ_EFFECTIVE_AFF_MASK 1
 #define CONFIG_HAVE_PCSPKR_PLATFORM 1
 #define CONFIG_SYMBOLIC_ERRNAME 1
@@ -998,6 +998,7 @@
 #define CONFIG_FB_CMDLINE 1
 #define CONFIG_IRQ_DOMAIN 1
 #define CONFIG_LSM_MMAP_MIN_ADDR 65536
+#define CONFIG_LOCALVERSION_AUTO 1
 #define CONFIG_INTEGRITY_AUDIT 1
 #define CONFIG_ARCH_HAS_DEBUG_VIRTUAL 1
 #define CONFIG_NET_TULIP 1
