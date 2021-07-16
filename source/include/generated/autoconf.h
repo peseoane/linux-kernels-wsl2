@@ -1,7 +1,7 @@
 /*
  *
  * Automatically generated file; DO NOT EDIT.
- * Linux/x86 5.13.1 Kernel Configuration
+ * Linux/x86 5.13.2 Kernel Configuration
  *
  */
 #define CONFIG_IP6_NF_MATCH_AH 1
@@ -865,7 +865,7 @@
 #define CONFIG_CRYPTO_CHACHA20_X86_64 1
 #define CONFIG_CC_HAS_KASAN_GENERIC 1
 #define CONFIG_DEBUG_KERNEL 1
-#define CONFIG_LOCALVERSION "-peseoane-wsl2-stable-"
+#define CONFIG_LOCALVERSION "-peseoane-stable-linux-kernels-wsl2"
 #define CONFIG_GENERIC_IRQ_EFFECTIVE_AFF_MASK 1
 #define CONFIG_HAVE_PCSPKR_PLATFORM 1
 #define CONFIG_SYMBOLIC_ERRNAME 1
