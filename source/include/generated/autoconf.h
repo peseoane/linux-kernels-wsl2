@@ -1,7 +1,7 @@
 /*
  *
  * Automatically generated file; DO NOT EDIT.
- * Linux/x86 5.13.2 Kernel Configuration
+ * Linux/x86 5.13.4 Kernel Configuration
  *
  */
 #define CONFIG_IP6_NF_MATCH_AH 1
