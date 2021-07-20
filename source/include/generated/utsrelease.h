@@ -1,1 +1,1 @@
-#define UTS_RELEASE "5.10.50-peseoane-longterm-linux-kernels-wsl2"
+#define UTS_RELEASE "5.10.52-peseoane-mainline-linux-kernels-wsl2"
