@@ -10939,6 +10939,7 @@
 0x00000000	ring_buffer_read_finish	vmlinux	EXPORT_SYMBOL_GPL	
 0x00000000	ring_buffer_commit_overrun_cpu	vmlinux	EXPORT_SYMBOL_GPL	
 0x00000000	_raw_spin_lock	vmlinux	EXPORT_SYMBOL	
+0x00000000	tcp_mtu_to_mss	vmlinux	EXPORT_SYMBOL	
 0x00000000	ip_queue_xmit	vmlinux	EXPORT_SYMBOL	
 0x00000000	rtnl_register_module	vmlinux	EXPORT_SYMBOL_GPL	
 0x00000000	put_cmsg_scm_timestamping64	vmlinux	EXPORT_SYMBOL	
