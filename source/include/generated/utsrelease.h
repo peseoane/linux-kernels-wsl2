@@ -1,1 +1,1 @@
-#define UTS_RELEASE "5.13.4-peseoane-stable-linux-kernels-wsl2"
+#define UTS_RELEASE "5.13.7-peseoane-stable-linux-kernels-wsl2"

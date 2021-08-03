@@ -18,15 +18,15 @@
  * Immovable memory regions representation. Max amount of memory regions is
  * MAX_NUMNODES*2.
  */
-struct mem_vector immovable_mem[MAX_NUMNODES * 2];
+struct mem_vector immovable_mem[MAX_NUMNODES*2];
 
 /*
  * Search EFI system tables for RSDP.  If both ACPI_20_TABLE_GUID and
  * ACPI_TABLE_GUID are found, take the former, which has more features.
  */
-static acpi_physical_address __efi_get_rsdp_addr(unsigned long config_tables,
-						 unsigned int nr_tables,
-						 bool efi_64)
+static acpi_physical_address
+__efi_get_rsdp_addr(unsigned long config_tables, unsigned int nr_tables,
+		    bool efi_64)
 {
 	acpi_physical_address rsdp_addr = 0;
 
@@ -39,22 +39,19 @@ static acpi_physical_address __efi_get_rsdp_addr(unsigned long config_tables,
 		efi_guid_t guid;
 
 		if (efi_64) {
-			efi_config_table_64_t *tbl =
-				(efi_config_table_64_t *)config_tables + i;
+			efi_config_table_64_t *tbl = (efi_config_table_64_t *)config_tables + i;
 
-			guid = tbl->guid;
+			guid  = tbl->guid;
 			table = tbl->table;
 
 			if (!IS_ENABLED(CONFIG_X86_64) && table >> 32) {
-				debug_putstr(
-					"Error getting RSDP address: EFI config table located above 4GB.\n");
+				debug_putstr("Error getting RSDP address: EFI config table located above 4GB.\n");
 				return 0;
 			}
 		} else {
-			efi_config_table_32_t *tbl =
-				(efi_config_table_32_t *)config_tables + i;
+			efi_config_table_32_t *tbl = (efi_config_table_32_t *)config_tables + i;
 
-			guid = tbl->guid;
+			guid  = tbl->guid;
 			table = tbl->table;
 		}
 
@@ -78,8 +75,7 @@ static struct efi_setup_data *get_kexec_setup_data_addr(void)
 	while (pa_data) {
 		data = (struct setup_data *)pa_data;
 		if (data->type == SETUP_EFI)
-			return (struct efi_setup_data
-					*)(pa_data + sizeof(struct setup_data));
+			return (struct efi_setup_data *)(pa_data + sizeof(struct setup_data));
 
 		pa_data = data->next;
 	}
@@ -110,19 +106,14 @@ static acpi_physical_address kexec_get_rsdp_addr(void)
 	}
 
 	/* Get systab from boot params. */
-	systab = (efi_system_table_64_t *)(ei->efi_systab |
-					   ((__u64)ei->efi_systab_hi << 32));
+	systab = (efi_system_table_64_t *) (ei->efi_systab | ((__u64)ei->efi_systab_hi << 32));
 	if (!systab)
 		error("EFI system table not found in kexec boot_params.");
 
-	return __efi_get_rsdp_addr((unsigned long)esd->tables,
-				   systab->nr_tables, true);
+	return __efi_get_rsdp_addr((unsigned long)esd->tables, systab->nr_tables, true);
 }
 #else
-static acpi_physical_address kexec_get_rsdp_addr(void)
-{
-	return 0;
-}
+static acpi_physical_address kexec_get_rsdp_addr(void) { return 0; }
 #endif /* CONFIG_X86_64 */
 
 static acpi_physical_address efi_get_rsdp_addr(void)
@@ -151,8 +142,7 @@ static acpi_physical_address efi_get_rsdp_addr(void)
 	systab = ei->efi_systab | ((__u64)ei->efi_systab_hi << 32);
 #else
 	if (ei->efi_systab_hi || ei->efi_memmap_hi) {
-		debug_putstr(
-			"Error getting RSDP address: EFI system table located above 4GB.\n");
+		debug_putstr("Error getting RSDP address: EFI system table located above 4GB.\n");
 		return 0;
 	}
 	systab = ei->efi_systab;
@@ -164,13 +154,13 @@ static acpi_physical_address efi_get_rsdp_addr(void)
 	if (efi_64) {
 		efi_system_table_64_t *stbl = (efi_system_table_64_t *)systab;
 
-		config_tables = stbl->tables;
-		nr_tables = stbl->nr_tables;
+		config_tables	= stbl->tables;
+		nr_tables	= stbl->nr_tables;
 	} else {
 		efi_system_table_32_t *stbl = (efi_system_table_32_t *)systab;
 
-		config_tables = stbl->tables;
-		nr_tables = stbl->nr_tables;
+		config_tables	= stbl->tables;
+		nr_tables	= stbl->nr_tables;
 	}
 
 	if (!config_tables)
@@ -251,8 +241,8 @@ static acpi_physical_address bios_get_rsdp_addr(void)
 	}
 
 	/* Search upper memory: 16-byte boundaries in E0000h-FFFFFh */
-	rsdp = scan_mem_for_rsdp((u8 *)ACPI_HI_RSDP_WINDOW_BASE,
-				 ACPI_HI_RSDP_WINDOW_SIZE);
+	rsdp = scan_mem_for_rsdp((u8 *) ACPI_HI_RSDP_WINDOW_BASE,
+					ACPI_HI_RSDP_WINDOW_SIZE);
 	if (rsdp)
 		return (acpi_physical_address)(unsigned long)rsdp;
 
@@ -295,7 +285,7 @@ static unsigned long get_cmdline_acpi_rsdp(void)
 	unsigned long addr = 0;
 
 #ifdef CONFIG_KEXEC
-	char val[MAX_ADDR_LEN] = {};
+	char val[MAX_ADDR_LEN] = { };
 	int ret;
 
 	ret = cmdline_find_option("acpi_rsdp", val, MAX_ADDR_LEN);
@@ -326,15 +316,16 @@ static unsigned long get_acpi_srat_table(void)
 	rsdp = (struct acpi_table_rsdp *)get_cmdline_acpi_rsdp();
 	if (!rsdp)
 		rsdp = (struct acpi_table_rsdp *)(long)
-			       boot_params->acpi_rsdp_addr;
+			boot_params->acpi_rsdp_addr;
 
 	if (!rsdp)
 		return 0;
 
 	/* Get ACPI root table from RSDP.*/
 	if (!(cmdline_find_option("acpi", arg, sizeof(arg)) == 4 &&
-	      !strncmp(arg, "rsdt", 4)) &&
-	    rsdp->xsdt_physical_address && rsdp->revision > 1) {
+	    !strncmp(arg, "rsdt", 4)) &&
+	    rsdp->xsdt_physical_address &&
+	    rsdp->revision > 1) {
 		root_table = rsdp->xsdt_physical_address;
 		size = ACPI_XSDT_ENTRY_SIZE;
 	} else {
@@ -362,8 +353,7 @@ static unsigned long get_acpi_srat_table(void)
 		if (acpi_table) {
 			header = (struct acpi_table_header *)acpi_table;
 
-			if (ACPI_COMPARE_NAMESEG(header->signature,
-						 ACPI_SIG_SRAT))
+			if (ACPI_COMPARE_NAMESEG(header->signature, ACPI_SIG_SRAT))
 				return acpi_table;
 		}
 		entry += size;
@@ -402,6 +392,7 @@ int count_immovable_mem_regions(void)
 	table = table_addr + sizeof(struct acpi_table_srat);
 
 	while (table + sizeof(struct acpi_subtable_header) < table_end) {
+
 		sub_table = (struct acpi_subtable_header *)table;
 		if (!sub_table->length) {
 			debug_putstr("Invalid zero length SRAT subtable.\n");
@@ -412,16 +403,14 @@ int count_immovable_mem_regions(void)
 			struct acpi_srat_mem_affinity *ma;
 
 			ma = (struct acpi_srat_mem_affinity *)sub_table;
-			if (!(ma->flags & ACPI_SRAT_MEM_HOT_PLUGGABLE) &&
-			    ma->length) {
+			if (!(ma->flags & ACPI_SRAT_MEM_HOT_PLUGGABLE) && ma->length) {
 				immovable_mem[num].start = ma->base_address;
 				immovable_mem[num].size = ma->length;
 				num++;
 			}
 
-			if (num >= MAX_NUMNODES * 2) {
-				debug_putstr(
-					"Too many immovable memory regions, aborting.\n");
+			if (num >= MAX_NUMNODES*2) {
+				debug_putstr("Too many immovable memory regions, aborting.\n");
 				return 0;
 			}
 		}
