@@ -65,7 +65,8 @@ And just clone, choose one branch and you're ready to go with your changes.
 The distributed versions are optimised for modern processors, with the following parameters and specially tuned for Intel, but works also in AMD, **i suggest you to recompile with your native system:**
 
 ```bash
-export KCFLAGS="-o2 -mtune=native -pipe" KCPPFLAGS="-o2 -mtune=native -pipe make all"
+export KCFLAGS="-O2 -mtune=native -pipe" KCPPFLAGS="-O2 -mtune=native -pipe"
+make all
 ```
 
 > NOTE: this dosen't work anymore on Intel 11th gen, JUST DON'T DO THAT beacuase needs `gcc-10` and `g++-10` and the linker isn't supporter yet, default optimization is for Intel Core Duo / Xeon an 02 flag.
